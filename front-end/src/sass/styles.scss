@@ -1,0 +1,585 @@
+$hoverColor: rgb(122, 237, 255); 
+$blue: #e2f4ff;
+
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
+}
+
+code {
+    font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
+}
+
+h1, h2 {
+    text-align: left;
+    padding: 0;
+    margin: 0;
+}
+
+p {
+    line-height: 1.5;
+    padding: 0;
+    margin: 0;
+}
+
+hr {
+    margin: 32px 0;
+}
+
+.back {
+    margin-left: 20px;
+    color: #000;
+    cursor: pointer;
+    text-decoration: none;
+    &:hover {
+        text-decoration: underline;
+
+    }
+}
+// create a mixin
+@mixin title {
+    width: 100%;
+    text-align: left;
+    font-size: 1.5rem;
+    font-weight: 800;
+    margin-bottom: 16px;
+    background-image: linear-gradient(180deg, transparent 65%, $hoverColor 0);
+    background-repeat: no-repeat;
+}
+
+.cancelled { 
+    background-color: #343432;
+    padding: 6px;
+    margin-left: 10px;
+    color: #fff;
+}
+
+label {
+    display: block;
+    font-size: 1rem;
+    line-height: 1.5;
+    font-weight: 800;
+    margin-bottom: 8px;
+}
+
+select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background: url("http://cdn1.iconfinder.com/data/icons/cc_mono_icon_set/blacks/16x16/br_down.png") white no-repeat 98.5% !important;
+    background: url("http://cdn1.iconfinder.com/data/icons/cc_mono_icon_set/blacks/16x16/br_down.png") white no-repeat calc(100% - 10px) !important;
+}
+
+input, select, textarea {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    font-size: 1rem;
+    line-height: 1.5;
+    color: #13100d;
+    background-color: #fff;
+    border: 1px solid #eaeaea;
+    border-radius: 0;
+    box-sizing: border-box;
+    margin-bottom: 16px;
+    &:focus {
+        color: #13100d;
+        background-color: #fff;
+        border-color: #33e0ff;
+        outline: 0;
+    }
+}
+
+.unsuccessful {
+    background-color: red;
+    padding: 3px 10px;
+    color: #fff;
+}
+
+.dateInput {
+    max-width: fit-content;
+}
+
+button {
+    font-weight: 400;
+    text-transform: uppercase;
+    color: #fff;
+    width: auto;
+    text-align: center;
+    position: relative;
+    border-radius: 0;
+    white-space: normal;
+    font-size: 10px 20px;
+    padding: 12px 20px;
+    background-color: #333;
+    display: inline-block;
+    cursor: pointer;
+    border: 1px solid #333;
+    max-width: fit-content;
+    &:hover {
+        color: #5f5c5c;
+        background-color: $hoverColor;
+        border-color: $hoverColor;
+    }
+}
+
+.success, .success-message {
+    background-color: #90ee90;
+    border-radius: 8px;
+    margin-bottom: 8px;
+    padding: 16px;
+    text-align: center;
+}
+
+.fail {
+    background-color: $hoverColor;
+    border-radius: 8px;
+    margin-bottom: 8px;
+    padding: 16px;
+    text-align: center;
+}
+
+hr {
+    color: black;
+    width: 100%;
+    height: 3px;
+    background-color: #333;
+}
+
+.buttonContainer {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    @media screen and (min-width: 1024px) {
+        display: flex;
+        justify-content: space-between;
+    }
+    button {
+        width: 100%;
+        margin-bottom: 15px;
+        @media screen and (min-width: 1024px) {
+            flex: 1;
+        }
+    }
+}
+
+.inner {
+    width: 100%;
+    max-width: 1280px;
+    margin: 0 auto;
+    box-sizing: border-box;
+    padding: 0 20px;
+    @media screen and (min-width: 1280px) {
+        padding: 0 20px;
+    }
+}
+
+.content {
+    max-width: 1280px;
+    padding: 90px 20px;
+    @media screen and (min-width: 1280px) {
+        padding: 90px 20px;
+    }
+    &Title {
+        position: relative;
+        border-bottom: solid 4px $hoverColor;
+        margin-bottom: 20px;
+        display: block;
+        max-width: fit-content;
+    }
+}
+.pwResetPage, .pwResetSuccess {
+    &Content {
+        padding: 50px 0;
+        @media screen and (min-width: 1024px) {
+             
+            padding: 100px 0;
+        }
+    }
+    &Title {
+        position: relative;
+        border-bottom: solid 4px $hoverColor;
+        margin-bottom: 20px;
+        display: block;
+        max-width: fit-content;
+    }
+    &Text {
+        padding: 10px 0;
+    }
+}
+ 
+.formContainer {
+    flex-basis: 100%;
+    width: 100%;
+    
+    @media screen and (min-width: 1024px) {
+        flex-basis: 50%;
+        width: 50%;
+    }
+}
+
+.pageHeader {
+    width: 100%;
+    border-bottom: 1px solid black;
+    background-color: #fff;
+
+    &Nav {
+        display: flex;
+        flex-direction: row;
+    }
+    &List {
+        position: relative;
+        display: flex;
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+        padding: 24px 0;
+        flex-basis: 80%;
+    }
+    &LogoutLink {
+        flex-basis: 20%;
+        padding: 24px 0;
+        display: flex;
+        justify-content: right;
+        order: 2;
+    }
+    &Button {
+        border: none;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        cursor: pointer;
+        margin: 0 35px 0 0;
+    }
+    a {
+        color: #333;
+        text-decoration: none;
+        font-weight: 800;
+        font-size: 18px;
+        &:hover {
+            span {
+                background-size: 100% 100%;
+                cursor: pointer;
+            }   
+        }
+        span {
+            background-image: linear-gradient(180deg, transparent 65%, $hoverColor 0);
+            background-size: 0 100%;
+            background-repeat: no-repeat;
+            text-decoration: none;
+            transition: background-size .4s ease;
+        }
+    }
+}
+
+.pageFooter {
+    position: relative;
+    width: 100%;
+    height: auto;
+    box-sizing: border-box;
+    color: #13100d;
+    display: block;
+    overflow: hidden;
+    background-color: #fff;
+    border-top: 1px solid black;
+    padding: 50px 20px 0 20px;
+    &List {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        line-height: 2.5;
+        color: #13100d;
+    }
+    &Item {
+        margin-bottom: 0.5rem;
+    }
+    &Link {
+        color: #13100d;
+        text-decoration: none;
+        font-size: 14px;
+        &:hover {
+            color: #333;
+            text-decoration: underline;
+        }
+    }
+    &Row {
+        width: 100%; 
+        @media screen and (min-width: 500px) {
+            display: flex;
+            flex-wrap: wrap;
+        }
+    }
+    &Col {
+        width: 50%;
+        flex: 0 0 50%;
+        @media screen and (min-width: 768px) {
+            flex: 0 0 33.3%;
+            flex-basis: 33.3%;
+        }
+    }
+    &Title {
+        width: 100%;
+        text-align: left;
+        font-weight: 800;
+        background-repeat: no-repeat;
+        margin-bottom: 20px;
+        color: black;
+    }
+}
+
+.addJobPageForm {
+    label {
+        margin-bottom: 15px;
+    } 
+}
+
+.signUpPage {
+    &Title {
+        position: relative;
+        @include title;
+    }
+}
+
+.highlighted {
+    font-weight: 800;
+    color: #333;
+    background-color: rgb(245, 245, 245);
+    padding: 5px 20px;
+    max-width: fit-content;
+}
+
+.error {
+    color: red; 
+    font-weight: normal;
+    font-size: 14px;
+}
+
+.searchInput {
+    max-width: 50%;
+    border: 1px solid #333;
+}
+
+.inputField {
+    margin-bottom: 0;
+}
+
+.jobSearchesPage {
+    position: relative;
+    background-color: #f8f8f8;
+    &Title {
+        position: relative;
+        @include title;
+    }
+    &Item {
+        font-weight: 800;
+        &.status {
+            margin-inline-end: 10px;
+        }
+    }
+    &Content {
+        padding: 50px 0;
+    }
+    &Card {
+        border-bottom: 1px solid rgb(218 218 218);
+        padding: 20px 0 0 0;
+        border-radius: 0;
+        border: 1px solid #e4e6ea;
+        padding: 20px;
+        background-color: white;
+        margin-bottom: 20px;
+        .buttonContainer {
+            position: relative;
+            width: 100%;
+            justify-content: flex-end;
+            margin-bottom: 0;
+            button {
+                max-width: fit-content;
+                margin-bottom: 0;
+            }
+        }
+    }
+}
+
+// Interviews page
+.interviews {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 40px;
+    gap: 20px;
+     
+    .interviewCard {
+        padding: 20px;
+        box-sizing: border-box;
+        flex-basis: 100%; 
+        background-color: $hoverColor;
+        border-radius: 4px;
+        display: flex;
+        flex-direction: column;
+        &:hover {
+            box-shadow: 0 .25rem 1rem rgba(0, 0, 0, .2);
+        }
+        @media screen and (min-width: 500px) {
+            flex-basis: calc((100% - 20px) / 2); 
+        }
+        @media screen and (min-width: 768px) {
+            flex-basis: calc((100% - 40px) / 3); 
+        }
+    }
+    .interview {
+        &ButtonContainer {
+            display: flex;
+            justify-content: space-between;
+            gap: 10px;
+            margin-top: auto;
+        }
+        &Info {
+            margin-bottom: 30px;
+        }
+        &Title {
+            margin-bottom: 20px;
+        }
+        &Date {
+            margin-top: 10px;
+        }
+    }
+    .interviewUpdateBtn {
+        border: 1px solid black;
+        cursor: pointer;
+        &:hover {
+            background-color: $hoverColor;
+        }
+    }
+}
+
+// end of interviews page
+.pagination {
+    .pageNumbers {
+        list-style: none;
+        display: flex;
+        padding: 0;
+        margin: 0;
+        margin-top: 50px;
+    }
+    &Link {
+        padding: 10px;
+        margin: 5px;
+        text-decoration: none;
+        color: #fff;
+        max-width: fit-content;
+        min-width: unset;
+        border: 0;
+        &:hover {
+            color: #5f5c5c;
+        }
+    }
+    .active {
+        button {
+            color: #5f5c5c;
+            background-color: $hoverColor;
+        }
+    }
+}
+
+.burger {
+    background-color: #fff;
+}
+
+@media (max-width: 1024px) {
+    .pageHeader {
+        .pageHeaderLogoutLink {
+            color: #333;
+        }
+        a {
+            color: #fff;
+            &:hover {
+                span {
+                    background-size: unset;
+                    background-image: unset;
+                    cursor: pointer;
+                    text-decoration: underline;
+                }   
+            }
+        }
+    }
+    .pageHeaderNav {
+        justify-content: space-between;
+        height: 70px;
+    }
+    .pageHeaderList {
+        display: none;
+        position: absolute;
+        top: 70px;
+        left: 0;
+        width: 100%;
+        background-color: $hoverColor;
+        z-index: 1;
+        height: 100vh;
+        overflow: hidden;
+    }
+    .pageHeaderButton {
+        display: block;
+        width: 100%;
+        text-align: center;
+        padding: 20px 0;
+        color: #fff;
+        font-weight: 800;
+        cursor: pointer;
+    }
+
+    .pageHeaderList {
+        &.open {
+            display: block;
+            height: 100vh;
+            overflow: hidden;
+            body {
+                overflow: hidden;
+            }
+        }
+    }
+
+    .burger {
+        display: block;
+        width: 20px;
+        height: 20px;
+        position: relative;
+        align-self: center;
+        border: 0;
+        &:hover {
+            cursor: pointer;
+            background-color: transparent;
+        }
+    }
+
+    .burger span {
+        position: absolute;
+        height: 5px;
+        background-color: #000;
+        left: 0;
+        right: 0;
+        width: 30px;
+    }
+
+    .burger span:nth-child(1) {
+        top: 0;
+    }
+
+    .burger span:nth-child(2) {
+        top: 50%;
+        transform: translateY(-50%);
+    }
+
+    .burger span:nth-child(3) {
+        bottom: 0;
+    }
+}
+
+@media (min-width: 1024px) {
+    .burger {
+        display: none;
+    }
+}
